@@ -1,0 +1,33 @@
+{
+  "name": "libs-nanikore-chime",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nanikore/chime/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nanikore/chime",
+        "main": "libs/nanikore/chime/src/index.ts",
+        "tsConfig": "libs/nanikore/chime/tsconfig.lib.json",
+        "assets": ["libs/nanikore/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/nanikore/chime/**/*.ts", "libs/nanikore/chime/package.json"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/nanikore/chime/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

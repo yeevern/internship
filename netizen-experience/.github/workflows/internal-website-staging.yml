@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - release/internal-staging-website
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  call-workflow-passing-data:
+    uses: netizen-experience/netizen-experience/.github/workflows/internal-website.yml@main
+    with:
+      environment: internal-staging
+    secrets: inherit

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Career API candidate schema",
+  "required": ["email"],
+  "properties": {
+    "email": {
+      "type": "string",
+      "title": "Candidate email",
+      "description": "Email to retrieve the API call records of a candidate",
+      "format": "email"
+    }
+  }
+}

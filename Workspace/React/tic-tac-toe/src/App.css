@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;  
+}
+
+html {
+  background-color: #a9aed0b3;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1%;
+  font-size: 50px;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+.game-board {
+  margin: 0 auto;
+}
+
+.square {
+  background: #a9aed0c3 ;
+  border: 5px solid #2a3681b3;
+  float: left;
+  font-size: 130px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 150px;
+  width: 150px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+}
+
+.row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+.game {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15%;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.square-winning {
+  background-color: #5386c5;
+  border: 5px solid #2a3681b3;
+  float: left;
+  font-size: 130px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 150px;
+  width: 150px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Career API list schema",
+  "properties": {
+    "date": {
+      "type": "string",
+      "title": "ISO Date",
+      "description": "Retrieve API call records on this date",
+      "format": "date"
+    }
+  }
+}

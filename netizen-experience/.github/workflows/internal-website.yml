@@ -1,0 +1,60 @@
+name: Internal website docker workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  nanikore-website:
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Environment - ${{ inputs.environment }}
+        run: |
+          echo ${{ inputs.environment }}
+          echo ${{ vars.TARGET }}
+      - name: Git clone repository
+        uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{secrets.AWS_ROLE_ARN}}
+          role-session-name: github-actions-session
+          aws-region: ap-southeast-1
+      - name: Setup Lightsail
+        run: |
+          curl "https://s3.us-west-2.amazonaws.com/lightsailctl/latest/linux-amd64/lightsailctl" -o "lightsailctl"
+          sudo mv "lightsailctl" "/usr/local/bin/lightsailctl"
+          sudo chmod +x /usr/local/bin/lightsailctl
+      - run: npm ci
+      - run: npx nx run internal-docker:build-image
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          AWS_REGION: ap-southeast-1
+          NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{vars.NEXT_PUBLIC_GOOGLE_CLIENT_ID}}
+          GOOGLE_CLIENT_SECRET: ${{secrets.GOOGLE_CLIENT_SECRET}}
+          JWE_SECRET: ${{secrets.JWE_SECRET}}
+          DYNAMO_PROMPT: ${{vars.DYNAMO_PROMPT}}
+          DYNAMO_USER: ${{vars.DYNAMO_USER}}
+          S3_PROMPT: ${{vars.S3_PROMPT}}
+          LAMBDA_DALLE_SAVE_HISTORY: ${{vars.LAMBDA_DALLE_SAVE_HISTORY}}
+          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
+      - name: Push image to lightsail
+        run: |
+          aws lightsail push-container-image --region ap-southeast-1 --service-name ${{vars.LIGHTSAIL_SERVICE_NAME}} --label latest --image internal-website:latest
+          aws lightsail get-container-images --service-name ${{vars.LIGHTSAIL_SERVICE_NAME}} | jq --raw-output ".containerImages[0].image" > image.txt
+          jq --arg image $(cat image.txt) '.containers.app.image = $image' apps/internal/docker/container.template.json > container.json
+          aws lightsail create-container-service-deployment --service-name ${{vars.LIGHTSAIL_SERVICE_NAME}} --cli-input-json file://$(pwd)/container.json

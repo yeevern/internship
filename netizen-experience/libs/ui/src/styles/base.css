@@ -1,0 +1,55 @@
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #111827;
+
+    --primary: #175ce5;
+    --primary-foreground: #ffffff;
+
+    --secondary: #ffffff;
+    --secondary-foreground: #111827;
+
+    --muted: #f3f4f6;
+    --muted-foreground: #111827b3; /* Temporary making ths shade darker for better readability, not finalized in design system */
+
+    --info: #3495fd;
+    --info-background: #daeeff;
+    --info-foreground: #1660df;
+
+    --success: #30b735;
+    --success-background: #dff9df;
+    --success-foreground: #1e7721;
+
+    --warning: #ffc700;
+    --warning-background: #fffcc1;
+    --warning-foreground: #a66702;
+
+    --danger: #f14242;
+    --danger-background: #fee2e2;
+    --danger-foreground: #bb1a1a;
+
+    --card: #ffffff;
+    --card-foreground: #111827;
+
+    --popover: #ffffff;
+    --popover-foreground: #111827;
+
+    --border: #d1d5db;
+    --input: #d1d5db;
+    --ring: #111827;
+    --shadow: 17 24 39;
+
+    /* To enable colors for dark mode, configure the tokens above inside ".dark" selector */
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

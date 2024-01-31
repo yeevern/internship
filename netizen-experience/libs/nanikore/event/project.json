@@ -1,0 +1,30 @@
+{
+  "name": "libs-nanikore-event",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nanikore/event/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nanikore/event",
+        "main": "libs/nanikore/event/src/index.ts",
+        "tsConfig": "libs/nanikore/event/tsconfig.lib.json",
+        "assets": ["libs/nanikore/event/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/nanikore/event/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

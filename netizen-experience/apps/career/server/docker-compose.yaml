@@ -1,0 +1,22 @@
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - 4566:4566
+      - 4510-4559:4510-4559
+    environment:
+      - DOCKER_HOST=${DOCKER_HOST}
+    volumes:
+      - career_localstack_data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      default:
+        aliases:
+          - localhost.localstack.cloud
+
+volumes:
+  career_localstack_data:
+
+networks:
+  default:
+    name: career_localstack_network

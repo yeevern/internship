@@ -1,0 +1,14 @@
+{
+  "name": "@nanikore/formation",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "@nanikore/libs-event": "*",
+    "@nanikore/libs-project": "*",
+    "@nanikore/libs-survey": "*",
+    "@netizen/utils-aws-cdk": "*",
+    "aws-cdk-lib": "^2.108.1",
+    "constructs": "^10.2.70",
+    "@nanikore/libs-chime": "*"
+  }
+}

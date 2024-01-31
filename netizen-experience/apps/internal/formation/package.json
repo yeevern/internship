@@ -1,0 +1,12 @@
+{
+  "name": "@internal/formation",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "@internal/libs-prompt-hub": "*",
+    "@internal/libs-user": "*",
+    "@netizen/utils-aws-cdk": "*",
+    "aws-cdk-lib": "^2.108.1",
+    "constructs": "^10.2.70"
+  }
+}

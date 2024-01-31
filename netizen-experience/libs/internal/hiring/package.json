@@ -1,0 +1,14 @@
+{
+  "name": "@internal/libs-hiring",
+  "version": "0.0.1",
+  "dependencies": {
+    "@netizen/utils-aws": "*",
+    "@netizen/utils-aws-cdk": "*",
+    "@netizen/utils-env": "*",
+    "@netizen/utils-types": "*",
+    "aws-cdk-lib": "^2.108.1",
+    "constructs": "^10.2.70",
+    "date-fns": "^2.30.0",
+    "zod": "^3.22.2"
+  }
+}

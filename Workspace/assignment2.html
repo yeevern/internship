@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <p>Time to count down from: <span id="counter"></span> </p>
+    <p id="timer">Starting timer counting in 2s</p>
+    <script type="text/javascript">
+        function timer(element1, element2, count) {
+            this.element = element1;
+            element2.innerText = count;
+            this.count = count;
+            this.start = function () {
+                var self = this; // ADDED so that it refers to the timer object instead of the window object
+                self.element.innerText = this.count--;
+                var interval = setInterval(function () {
+                    self.element.innerText = self.count--;  // CHANGED
+                    if (self.count < 0)  // CHANGED
+                        clearInterval(interval);
+                }, 1000);
+            };
+        };
+        ((t) => {
+            setTimeout(function () {
+                t.start();
+            }, 2000);
+        })(new timer(document.getElementById("timer"),
+            document.getElementById("counter"),
+            (counter => (counter = count => (--count ? counter(count) : count) + count)(10))()));
+    </script>
+</body>
+
+</html>

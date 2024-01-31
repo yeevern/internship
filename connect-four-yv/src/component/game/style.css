@@ -1,0 +1,147 @@
+.game-screen {
+    position: relative;
+}
+
+.game-button {
+    display: grid;
+    width: 100vw;
+    max-width: 550px;
+    min-width: 320px;
+    margin: 5px auto;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.button {
+    padding: 0.75rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 40px;
+    color: var(--color-white);
+    text-align: center;
+    background-color: var(--color-bg-variant);
+}
+
+.game {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+}
+
+.player-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    height: 170px;
+    border-radius: 35px;
+    border: 2px solid var(--color-black);
+    border-bottom: 10px solid var(--color-dark-blue);
+    background-color: var(--color-white);
+}
+
+.player-card h2 {
+    margin-top: 24px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.player-card p {
+    font-size: 4rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.player h2 {
+    color: var(--color-green);
+    -webkit-text-stroke: 1px var(--color-dark-green);
+}
+
+.cpu h2 {
+    color: var(--color-orange);
+    -webkit-text-stroke: 1px var(--color-dark-orange);
+}
+
+.game {
+    position: relative;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.board {
+    position: relative;
+}
+
+.black-board {
+    position: absolute;
+    left: 0;
+    top: 1.5px;
+    z-index: -1; 
+}
+
+.display-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 180px;
+    height: 200px;
+    border-radius: 35px;
+    border: 2px solid var(--color-black);
+    border-bottom: 10px solid var(--color-dark-blue);
+    background-color: var(--color-white);
+}
+
+.grid {
+    position: absolute;
+    margin-top: 17px;
+    left: 16px;
+    top: 1px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 19.5px;
+    margin-bottom: 19px;
+    background-color: #0913457a;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.circle-red {
+    background-color: var(--color-red);
+}
+
+.circle-yellow {
+    background-color: var(--color-yellow);
+}
+
+.white-board, .black-board {
+    width: 500px;
+    height: auto;
+}
+
+.display {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: var(--color-white);
+    /* outline */
+    border: 2px solid var(--color-black);
+}

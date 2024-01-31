@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <script type="module" src="/src/main.ts"></script>
+    <script src="/src/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 2 Assignment</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <h1>Card Listing Page</h1>
+    <img class="banner" src="public/banner.jpeg" alt="banner"/>
+
+    <div class="card-container">
+      <div class="filter">
+        <label>Sort By: </label>
+        <select id="sortOption" onchange="window.sortCard()">
+          <option value="ascending">Collector Number - Ascending</option>
+          <option value="descending">Collector Number - Descending</option>
+        </select>
+      </div>
+
+      <hr>
+
+      <div id="badge">
+        <ul id="cardList"></ul>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+    <script src="/src/main.js"></script>
+  </body>
+</html>

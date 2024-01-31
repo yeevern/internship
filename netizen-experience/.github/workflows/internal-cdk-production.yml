@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - release/internal-production-cdk
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  call-workflow-passing-data:
+    uses: netizen-experience/netizen-experience/.github/workflows/internal-cdk.yml@main
+    with:
+      environment: internal-production
+    secrets: inherit

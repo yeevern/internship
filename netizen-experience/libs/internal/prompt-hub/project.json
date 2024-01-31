@@ -1,0 +1,30 @@
+{
+  "name": "libs-internal-prompt-hub",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/internal/prompt-hub/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/internal/prompt-hub",
+        "main": "libs/internal/prompt-hub/src/index.ts",
+        "tsConfig": "libs/internal/prompt-hub/tsconfig.lib.json",
+        "assets": ["libs/internal/prompt-hub/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/internal/prompt-hub/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

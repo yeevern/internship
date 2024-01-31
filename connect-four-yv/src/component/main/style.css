@@ -1,0 +1,40 @@
+.main-screen {
+    width: 100%;
+    max-width: 600px;
+    padding: 36px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 35px;
+    border: 2px solid var(--color-black);
+    border-bottom: 10px solid var(--color-dark-blue);
+    background-color: var(--color-bg-light);
+}
+  
+.main-button {
+    max-width: 250px;
+    height: 60px;
+    margin: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid var(--color-black);
+    border-bottom: 8px solid var(--color-dark-blue);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.button-pink {
+    background-color: var(--color-red);
+}
+
+.button-yellow {
+    background-color: var(--color-yellow);
+}
+
+.main-logo {
+    width: 150px;
+    height: 150px;
+}

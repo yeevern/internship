@@ -1,0 +1,15 @@
+{
+  "name": "internal-docker",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build-image": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "",
+        "command": "docker build $(cat apps/internal/docker/env.list | while read line; do echo \"--build-arg $line\"; done;) -f apps/internal/docker/dockerfile -t internal-website ."
+      }
+    }
+  }
+}

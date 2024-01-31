@@ -1,0 +1,48 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "types": ["jest", "node"],
+    "paths": {
+      "@internal/libs-hiring": ["libs/internal/hiring/src/index.ts"],
+      "@internal/libs-prompt-hub": ["libs/internal/prompt-hub/src/index.ts"],
+      "@internal/libs-user": ["libs/internal/user/src/index.ts"],
+      "@internal/types-user": ["libs/internal/user/src/types.ts"],
+      "@netizen/ui": ["libs/ui/src/index.ts"],
+      "@netizen/ui/server": ["libs/ui/src/server.ts"],
+      "@netizen/utils-aws": ["libs/utils/aws/src/index.ts"],
+      "@netizen/utils-aws-cdk": ["libs/utils/aws-cdk/src/index.ts"],
+      "@netizen/utils-env": ["libs/utils/env/src/index.ts"],
+      "@netizen/utils-hooks": ["libs/utils/hooks/src/index.ts"],
+      "@netizen/utils-next": ["libs/utils/next/src/index.ts"],
+      "@netizen/utils-string": ["libs/utils/string/src/index.ts"],
+      "@netizen/utils-types": ["libs/utils/types/src/index.ts"],
+      "@netizen/utils-ui": ["libs/utils/ui/src/index.ts"],
+      "@/*": ["apps/internal/website/src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "script/dev-setup.mts",
+    "../../../dist/apps/internal/website/.next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", "jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
+}

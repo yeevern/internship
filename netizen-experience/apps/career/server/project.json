@@ -1,0 +1,16 @@
+{
+  "name": "career-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/career/server/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/career/server",
+        "command": "docker compose -p career-server up"
+      }
+    }
+  }
+}

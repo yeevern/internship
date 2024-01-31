@@ -1,0 +1,18 @@
+DELETE a branch
+git branch -d <branch-name>
+git fetch --prune
+
+MERGE branch a to b
+git checkout <branch b>
+git merge <branch a>
+
+
+after click merge in github, click delete the branch
+then come to vs code do:
+	git stash
+	git checkout master
+	git pull
+	git checkout from the branch u left off jn
+	git stash apply
+	git merge master (because I wan to merge master to the current branch Im working on)
+	then delete the previous merged branch which was reviewed on git locally

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Career settings schema",
+  "required": ["maxFileSizeInMB"],
+  "properties": {
+    "maxFileSizeInMB": {
+      "type": "integer",
+      "title": "Maximum file size",
+      "description": "Maximum allowable file size in MB",
+      "minimum": 1
+    }
+  }
+}

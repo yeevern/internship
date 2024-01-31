@@ -1,0 +1,58 @@
+{
+  "name": "internal-formation",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/internal/formation/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/internal/formation",
+        "command": "cdk synth --context target={args.target} --all"
+      },
+      "configurations": {
+        "local": {
+          "args": "--target=local"
+        },
+        "staging": {
+          "args": "--target=staging"
+        },
+        "production": {
+          "args": "--target=production"
+        }
+      },
+      "defaultConfiguration": "local"
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/internal/formation",
+        "command": "cdk watch --hotswap --context target=local --all"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/internal/formation",
+        "command": "cdk deploy --context target={args.target} --all --require-approval never"
+      },
+      "configurations": {
+        "local": {
+          "args": "--target=local"
+        },
+        "staging": {
+          "args": "--target=staging"
+        },
+        "production": {
+          "args": "--target=production"
+        }
+      },
+      "defaultConfiguration": "local"
+    }
+  }
+}

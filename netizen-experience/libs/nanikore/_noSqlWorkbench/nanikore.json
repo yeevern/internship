@@ -1,0 +1,2272 @@
+{
+  "ModelName": "NaniKore",
+  "ModelMetadata": {
+    "Author": "Danny Ng",
+    "DateCreated": "Mar 23, 2022, 11:48 AM",
+    "DateLastModified": "Dec 10, 2023, 05:36 PM",
+    "Description": "Data model for NaniKore",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "models",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "partition",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "sort",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "modelId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "ownerId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "title",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "description",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "type",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "regex",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "selections",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "allowOthers",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "uniqueSelection",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "min",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "max",
+          "AttributeType": "N"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "meta",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Meta",
+            "SortKeyAlias": "Readable Model ID"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "meta"
+              },
+              "sort": {
+                "S": "gender"
+              },
+              "modelId": {
+                "S": "ee85ec39-5302-4853-91dc-d0c7adfbad50"
+              },
+              "title": {
+                "S": "Gender"
+              },
+              "description": {
+                "S": "Gender"
+              }
+            },
+            {
+              "partition": {
+                "S": "meta"
+              },
+              "sort": {
+                "S": "phone-model"
+              },
+              "modelId": {
+                "S": "d666feee-32f4-4f02-96c6-f5fbc2cc97fc"
+              },
+              "title": {
+                "S": "Phone models owned"
+              },
+              "description": {
+                "S": "Phone models owned"
+              }
+            },
+            {
+              "partition": {
+                "S": "meta"
+              },
+              "sort": {
+                "S": "age"
+              },
+              "modelId": {
+                "S": "c22a3afb-be30-4d60-b1f9-380d234c1dfc"
+              },
+              "title": {
+                "S": "Age"
+              },
+              "description": {
+                "S": "Age"
+              }
+            },
+            {
+              "partition": {
+                "S": "meta"
+              },
+              "sort": {
+                "S": "last-travel-date"
+              },
+              "modelId": {
+                "S": "100097b9-5108-40f5-8ea3-fde182699a30"
+              },
+              "title": {
+                "S": "Last travel date"
+              },
+              "description": {
+                "S": "Last travel date"
+              }
+            },
+            {
+              "partition": {
+                "S": "meta"
+              },
+              "sort": {
+                "S": "number-of-children"
+              },
+              "modelId": {
+                "S": "bd7c39eb-a84b-42b9-853d-50400ad93d2b"
+              },
+              "title": {
+                "S": "Number of children"
+              }
+            },
+            {
+              "partition": {
+                "S": "meta"
+              },
+              "sort": {
+                "S": "social-media"
+              },
+              "modelId": {
+                "S": "0b208d54-167b-4ea1-a419-d798e146ac9a"
+              },
+              "title": {
+                "S": "Social media"
+              }
+            }
+          ],
+          "NonKeyAttributes": ["modelId", "title", "description"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "selection",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Model ID",
+            "SortKeyAlias": "Date"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "ee85ec39-5302-4853-91dc-d0c7adfbad50"
+              },
+              "sort": {
+                "S": "date#1696607825948"
+              },
+              "modelId": {
+                "S": "dc175bdb-0a50-47e0-b07b-923ebdfa1f3b"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "type": {
+                "S": "selection"
+              },
+              "selections": {
+                "SS": ["Male", "Female"]
+              },
+              "allowOthers": {
+                "BOOL": true
+              },
+              "uniqueSelection": {
+                "BOOL": true
+              }
+            },
+            {
+              "partition": {
+                "S": "d666feee-32f4-4f02-96c6-f5fbc2cc97fc"
+              },
+              "sort": {
+                "S": "date#1693065585749"
+              },
+              "modelId": {
+                "S": "26c27b21-1095-4821-a5f6-439efb0022ac"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "type": {
+                "S": "selection"
+              },
+              "selections": {
+                "SS": ["iPhone 14 Pro", "iPhone 14 Pro Max"]
+              },
+              "allowOthers": {
+                "BOOL": false
+              },
+              "uniqueSelection": {
+                "BOOL": false
+              }
+            },
+            {
+              "partition": {
+                "S": "d666feee-32f4-4f02-96c6-f5fbc2cc97fc"
+              },
+              "sort": {
+                "S": "date#1697558277562"
+              },
+              "modelId": {
+                "S": "a29ede86-ca19-4c36-86be-2bbbc69752f6"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "type": {
+                "S": "selection"
+              },
+              "selections": {
+                "SS": ["iPhone 14 Pro", "iPhone 14 Pro Max", "iPhone 15 Pro", "iPhone 15 Pro Max"]
+              },
+              "allowOthers": {
+                "BOOL": false
+              },
+              "uniqueSelection": {
+                "BOOL": false
+              }
+            },
+            {
+              "partition": {
+                "S": "0b208d54-167b-4ea1-a419-d798e146ac9a"
+              },
+              "sort": {
+                "S": "date#1702125355865"
+              },
+              "modelId": {
+                "S": "32f67154-8753-48ed-ae9b-6525cb0af626"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "type": {
+                "S": "selection"
+              },
+              "selections": {
+                "SS": ["Facebook", "Friendster", "Instagram", "TikTok", "Discord", "LinkedIn"]
+              },
+              "allowOthers": {
+                "BOOL": false
+              },
+              "uniqueSelection": {
+                "BOOL": false
+              }
+            }
+          ],
+          "NonKeyAttributes": ["modelId", "ownerId", "type", "selections", "allowOthers", "uniqueSelection"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "date",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Model ID",
+            "SortKeyAlias": "Date"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "100097b9-5108-40f5-8ea3-fde182699a30"
+              },
+              "sort": {
+                "S": "date#1693065585749"
+              },
+              "modelId": {
+                "S": "be16507a-f8d9-4748-92e5-488369876f35"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "type": {
+                "S": "date"
+              }
+            }
+          ],
+          "NonKeyAttributes": ["modelId", "ownerId", "type", "min", "max"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "number",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Model ID",
+            "SortKeyAlias": "Date"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "c22a3afb-be30-4d60-b1f9-380d234c1dfc"
+              },
+              "sort": {
+                "S": "date#1693065585749"
+              },
+              "modelId": {
+                "S": "3d8976ed-3954-4e62-8330-ad7a38b4e24d"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "type": {
+                "S": "number"
+              },
+              "min": {
+                "N": "0"
+              },
+              "max": {
+                "N": "100"
+              }
+            },
+            {
+              "partition": {
+                "S": "bd7c39eb-a84b-42b9-853d-50400ad93d2b"
+              },
+              "sort": {
+                "S": "date#1701881202988"
+              },
+              "modelId": {
+                "S": "982455c7-cde1-47cb-aa84-fb2765eb2f57"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "type": {
+                "S": "number"
+              },
+              "min": {
+                "N": "0"
+              }
+            }
+          ],
+          "NonKeyAttributes": ["modelId", "ownerId", "type", "min", "max"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "string",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Model ID",
+            "SortKeyAlias": "Date"
+          },
+          "TableData": [],
+          "NonKeyAttributes": ["modelId", "ownerId", "type", "regex"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "modelIdGSI",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "modelId",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "SampleDataFormats": {
+        "modelId": ["identifiers", "UUID"],
+        "ownerId": ["identifiers", "UUID"]
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    },
+    {
+      "TableName": "surveys",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "partition",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "sort",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "createdAt",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "updatedAt",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "ownerId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "status",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "startDate",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "endDate",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "title",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "description",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "destinationBranchId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "branchCondition",
+          "AttributeType": "L"
+        },
+        {
+          "AttributeName": "conditionalDestinationBranchId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "completionId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "randomizeQuestionOrder",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "completionText",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "branchId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "questionIndex",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "skipCondition",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "modelId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "type",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "question",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "helperText",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "isOptional",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "randomizeAnswerOrder",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "selectionValue",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "dateValue",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "numberValue",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "stringValue",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "surveyId",
+          "AttributeType": "S"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "meta",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Survey ID",
+            "SortKeyAlias": "Meta"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "meta"
+              },
+              "createdAt": {
+                "N": "1701874693681"
+              },
+              "updatedAt": {
+                "N": "1701877093681"
+              },
+              "status": {
+                "S": "active"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "startDate": {
+                "N": "1701388800000"
+              },
+              "endDate": {
+                "N": "1703980800000"
+              },
+              "title": {
+                "S": "Survey 1"
+              },
+              "description": {
+                "S": "Survey description"
+              }
+            },
+            {
+              "partition": {
+                "S": "416433ad-06bd-47e4-b910-b6342aa82299"
+              },
+              "sort": {
+                "S": "meta"
+              },
+              "createdAt": {
+                "N": "1701916928377"
+              },
+              "updatedAt": {
+                "N": "1701920543525"
+              },
+              "status": {
+                "S": "draft"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "startDate": {
+                "N": "1675209600000"
+              },
+              "endDate": {
+                "N": "1677542400000"
+              },
+              "title": {
+                "S": "Survey 2"
+              },
+              "description": {
+                "S": "Survey description"
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "createdAt",
+            "updatedAt",
+            "ownerId",
+            "status",
+            "startDate",
+            "endDate",
+            "title",
+            "description"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "branch",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Survey ID",
+            "SortKeyAlias": "Branch ID"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "question#branch#8a484893-d417-42b1-b246-c76a29865b9b"
+              },
+              "branchCondition": {
+                "L": [
+                  {
+                    "M": {
+                      "modelId": {
+                        "S": "3d8976ed-3954-4e62-8330-ad7a38b4e24d"
+                      },
+                      "operator": {
+                        "S": ">"
+                      },
+                      "value": {
+                        "N": 18
+                      }
+                    }
+                  }
+                ]
+              },
+              "destinationBranchId": {
+                "S": "72637f85-b19b-4ce3-a333-a3ad3c69588a"
+              },
+              "conditionalDestinationBranchId": {
+                "S": "12734df8-cf1c-4726-a056-083637ec7597"
+              }
+            },
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "question#branch#72637f85-b19b-4ce3-a333-a3ad3c69588a"
+              },
+              "completionId": {
+                "S": "f667ea9e-147c-4b38-b4d1-7c02ef2dbd17"
+              }
+            },
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "question#branch#12734df8-cf1c-4726-a056-083637ec7597"
+              },
+              "completionId": {
+                "S": "f667ea9e-147c-4b38-b4d1-7c02ef2dbd17"
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "destinationBranchId",
+            "branchCondition",
+            "conditionalDestinationBranchId",
+            "completionId",
+            "title",
+            "description",
+            "randomizeQuestionOrder"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "completion",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Survey ID",
+            "SortKeyAlias": "Completion ID"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "completion#f667ea9e-147c-4b38-b4d1-7c02ef2dbd17"
+              },
+              "completionText": {
+                "S": "Thank you for participating in this survey!"
+              }
+            }
+          ],
+          "NonKeyAttributes": ["completionText"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "question",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Survey ID",
+            "SortKeyAlias": "Question ID"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "question#4e962271-7fe5-4130-9932-1694dbdc5142"
+              },
+              "modelId": {
+                "S": "3d8976ed-3954-4e62-8330-ad7a38b4e24d"
+              },
+              "branchId": {
+                "S": "8a484893-d417-42b1-b246-c76a29865b9b"
+              },
+              "questionIndex": {
+                "N": "0"
+              },
+              "question": {
+                "S": "How old are you?"
+              },
+              "isOptional": {
+                "BOOL": false
+              }
+            },
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "question#2c5aa5c7-d633-4917-8953-41b261f7ad64"
+              },
+              "modelId": {
+                "S": "982455c7-cde1-47cb-aa84-fb2765eb2f57"
+              },
+              "branchId": {
+                "S": "8a484893-d417-42b1-b246-c76a29865b9b"
+              },
+              "questionIndex": {
+                "N": "1"
+              },
+              "question": {
+                "S": "How many children do you have?"
+              },
+              "isOptional": {
+                "BOOL": true
+              }
+            },
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "question#b41149f8-e78d-444b-8182-a1a8dbfc2792"
+              },
+              "modelId": {
+                "S": "32f67154-8753-48ed-ae9b-6525cb0af626"
+              },
+              "branchId": {
+                "S": "12734df8-cf1c-4726-a056-083637ec7597"
+              },
+              "questionIndex": {
+                "N": "0"
+              },
+              "question": {
+                "S": "Please check the boxes for the social media platforms you have an account on."
+              },
+              "isOptional": {
+                "BOOL": false
+              },
+              "randomizeAnswerOrder": {
+                "BOOL": true
+              }
+            },
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "question#ad6c25c8-faad-4481-8e82-80eae68705a2"
+              },
+              "modelId": {
+                "S": "32f67154-8753-48ed-ae9b-6525cb0af626"
+              },
+              "branchId": {
+                "S": "72637f85-b19b-4ce3-a333-a3ad3c69588a"
+              },
+              "questionIndex": {
+                "N": "0"
+              },
+              "question": {
+                "S": "Have you heard of Friendster?"
+              },
+              "isOptional": {
+                "BOOL": false
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "branchId",
+            "questionIndex",
+            "skipCondition",
+            "modelId",
+            "type",
+            "question",
+            "helperText",
+            "isOptional",
+            "randomizeAnswerOrder"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "answer",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Survey ID",
+            "SortKeyAlias": "Question ID"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "answer#4e962271-7fe5-4130-9932-1694dbdc5142"
+              },
+              "createdAt": {
+                "N": "1702133888754"
+              },
+              "ownerId": {
+                "S": "9e90d08e-0043-480f-94a9-e6f926b37123"
+              },
+              "modelId": {
+                "S": "3d8976ed-3954-4e62-8330-ad7a38b4e24d"
+              },
+              "numberValue": {
+                "N": "19"
+              }
+            },
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "answer#2c5aa5c7-d633-4917-8953-41b261f7ad64"
+              },
+              "createdAt": {
+                "N": "1702133888754"
+              },
+              "ownerId": {
+                "S": "9e90d08e-0043-480f-94a9-e6f926b37123"
+              },
+              "modelId": {
+                "S": "8a484893-d417-42b1-b246-c76a29865b9b"
+              },
+              "numberValue": {
+                "N": "0"
+              }
+            },
+            {
+              "partition": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              },
+              "sort": {
+                "S": "answer#b41149f8-e78d-444b-8182-a1a8dbfc2792"
+              },
+              "createdAt": {
+                "N": "1702133888754"
+              },
+              "ownerId": {
+                "S": "9e90d08e-0043-480f-94a9-e6f926b37123"
+              },
+              "modelId": {
+                "S": "32f67154-8753-48ed-ae9b-6525cb0af626"
+              },
+              "selectionValue": {
+                "SS": ["TikTok", "Discord"]
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "createdAt",
+            "ownerId",
+            "modelId",
+            "selectionValue",
+            "dateValue",
+            "numberValue",
+            "stringValue"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "access",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "User ID",
+            "SortKeyAlias": "Access granted"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "9e90d08e-0043-480f-94a9-e6f926b37123"
+              },
+              "sort": {
+                "S": "access#1702124975762"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "surveyId": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              }
+            },
+            {
+              "partition": {
+                "S": "4248db04-da7d-4358-9b85-41169594c5b5"
+              },
+              "sort": {
+                "S": "access#1702124975762"
+              },
+              "ownerId": {
+                "S": "c37fd6df-b2ee-42dc-af8e-bb3f53283207"
+              },
+              "surveyId": {
+                "S": "74c45b59-1b1f-40c3-b4de-3cfcd8f229f0"
+              }
+            }
+          ],
+          "NonKeyAttributes": ["ownerId", "surveyId"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "modelIdGSI",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "modelId",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "sort",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "SampleDataFormats": {
+        "surveyId": ["identifiers", "UUID"],
+        "userId": ["identifiers", "UUID"],
+        "modelId": ["identifiers", "UUID"],
+        "branchId": ["identifiers", "UUID"],
+        "destination": ["identifiers", "UUID"],
+        "conditionalDestination": ["identifiers", "UUID"],
+        "completionId": ["identifiers", "UUID"],
+        "destinationBranchId": ["identifiers", "UUID"],
+        "conditionalDestinationBranchId": ["identifiers", "UUID"]
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    },
+    {
+      "TableName": "projects",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "partition",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "sort",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "createdAt",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "updatedAt",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "type",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "status",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "startDate",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "endDate",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "ownerId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "clientIds",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "researcherIds",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "language",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "interpreterLanguage",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "observerIds",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "moderatorIds",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "respondentCount",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "backupRespondentCount",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "isRemote",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "deviceType",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "surveyId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "fulfilledCriteria",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "hasConfirmedSchedule",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "discussionGuideId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "eventId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "userId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "transactionId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "startTime",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "duration",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "changeRequested",
+          "AttributeType": "BOOL"
+        },
+        {
+          "AttributeName": "videoRecording",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "sentimentAnalysis",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "guestLinkIds",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "changes",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "projectId",
+          "AttributeType": "S"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "access",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "User ID",
+            "SortKeyAlias": "Time access granted"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "64760e40-80f3-4009-a67d-f46b2e4b8360"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "64760e40-80f3-4009-a67d-f46b2e4b8360"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "64760e40-80f3-4009-a67d-f46b2e4b8360"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "a477275f-495b-4323-891a-21b15707f5e2"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "3ef55dda-2b9f-4e87-b099-42c2b9eb2bb4"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "e698a46e-d466-4724-b317-7b15cfe41b66"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "bd94811d-d2e1-4e0e-81b5-1d08b86eb72a"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "bd94811d-d2e1-4e0e-81b5-1d08b86eb72a"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "1cdbeb91-bb03-4b5f-ba53-83732830c882"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "1cdbeb91-bb03-4b5f-ba53-83732830c882"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "098ec214-2936-4074-8cb9-d0fb1fbe0e6f"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "098ec214-2936-4074-8cb9-d0fb1fbe0e6f"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "098ec214-2936-4074-8cb9-d0fb1fbe0e6f"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "c603400f-1ad7-4463-a618-1a6e5b10088f"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "0f9631ae-bbaf-4e1c-9f06-66f6e72eba1d"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "0f9631ae-bbaf-4e1c-9f06-66f6e72eba1d"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "0f9631ae-bbaf-4e1c-9f06-66f6e72eba1d"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "38e1ddd5-4ede-437c-8125-5649a7db0bc6"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "38e1ddd5-4ede-437c-8125-5649a7db0bc6"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "38e1ddd5-4ede-437c-8125-5649a7db0bc6"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "a5259f56-aa5a-472b-b498-d20845718a25"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "a5259f56-aa5a-472b-b498-d20845718a25"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "a5259f56-aa5a-472b-b498-d20845718a25"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "b033bca8-5e23-46f8-8c94-94eba1fa8a96"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "b033bca8-5e23-46f8-8c94-94eba1fa8a96"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "b033bca8-5e23-46f8-8c94-94eba1fa8a96"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            },
+            {
+              "partition": {
+                "S": "69682be5-5f35-4e99-88e3-042597ec2648"
+              },
+              "sort": {
+                "S": "access#1701392400"
+              },
+              "projectId": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              }
+            },
+            {
+              "partition": {
+                "S": "69682be5-5f35-4e99-88e3-042597ec2648"
+              },
+              "sort": {
+                "S": "access#1701478800"
+              },
+              "projectId": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              }
+            },
+            {
+              "partition": {
+                "S": "69682be5-5f35-4e99-88e3-042597ec2648"
+              },
+              "sort": {
+                "S": "access#1701565200"
+              },
+              "projectId": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              }
+            }
+          ],
+          "NonKeyAttributes": ["projectId"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "project",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Project ID",
+            "SortKeyAlias": "Meta"
+          },
+          "TableData": [
+            {
+              "partition": {
+                "S": "fd82bef8-22c1-4cd7-819c-bae3031d0a17"
+              },
+              "sort": {
+                "S": "meta"
+              },
+              "createdAt": {
+                "N": 1701392400
+              },
+              "type": {
+                "S": "moderatedUserTest"
+              },
+              "name": {
+                "S": "XYZ Project Moderated UT"
+              },
+              "status": {
+                "S": "inProgress"
+              },
+              "startDate": {
+                "N": 1701532800
+              },
+              "endDate": {
+                "N": 1702310400
+              },
+              "ownerId": {
+                "S": "64760e40-80f3-4009-a67d-f46b2e4b8360"
+              },
+              "clientIds": {
+                "SS": ["a477275f-495b-4323-891a-21b15707f5e2"]
+              },
+              "researcherIds": {
+                "SS": [
+                  "bd94811d-d2e1-4e0e-81b5-1d08b86eb72a",
+                  "1cdbeb91-bb03-4b5f-ba53-83732830c882",
+                  "098ec214-2936-4074-8cb9-d0fb1fbe0e6f"
+                ]
+              },
+              "observerIds": {
+                "SS": [
+                  "0f9631ae-bbaf-4e1c-9f06-66f6e72eba1d",
+                  "38e1ddd5-4ede-437c-8125-5649a7db0bc6",
+                  "a5259f56-aa5a-472b-b498-d20845718a25"
+                ]
+              },
+              "moderatorIds": {
+                "SS": [
+                  "b033bca8-5e23-46f8-8c94-94eba1fa8a96",
+                  "69682be5-5f35-4e99-88e3-042597ec2648",
+                  "a5259f56-aa5a-472b-b498-d20845718a25"
+                ]
+              },
+              "language": {
+                "SS": ["english"]
+              },
+              "interpreterLanguage": {
+                "SS": ["english", "malay"]
+              },
+              "respondentCount": {
+                "N": 20
+              },
+              "backupRespondentCount": {
+                "N": 5
+              },
+              "isRemote": {
+                "BOOL": true
+              },
+              "deviceType": {
+                "SS": ["desktop"]
+              }
+            },
+            {
+              "partition": {
+                "S": "f21bec31-da0e-4b99-9dd3-03d931a5f6e6"
+              },
+              "sort": {
+                "S": "meta"
+              },
+              "createdAt": {
+                "N": 1701478800
+              },
+              "type": {
+                "S": "userInterview"
+              },
+              "name": {
+                "S": "ABC Bank User Interview"
+              },
+              "status": {
+                "S": "draft"
+              },
+              "startDate": {
+                "N": 1702310400
+              },
+              "endDate": {
+                "N": 1702828800
+              },
+              "ownerId": {
+                "S": "bd94811d-d2e1-4e0e-81b5-1d08b86eb72a"
+              },
+              "clientIds": {
+                "SS": ["3ef55dda-2b9f-4e87-b099-42c2b9eb2bb4"]
+              },
+              "researcherIds": {
+                "SS": ["bd94811d-d2e1-4e0e-81b5-1d08b86eb72a", "098ec214-2936-4074-8cb9-d0fb1fbe0e6f"]
+              },
+              "observerIds": {
+                "SS": [
+                  "0f9631ae-bbaf-4e1c-9f06-66f6e72eba1d",
+                  "38e1ddd5-4ede-437c-8125-5649a7db0bc6",
+                  "a5259f56-aa5a-472b-b498-d20845718a25"
+                ]
+              },
+              "moderatorIds": {
+                "SS": [
+                  "b033bca8-5e23-46f8-8c94-94eba1fa8a96",
+                  "69682be5-5f35-4e99-88e3-042597ec2648",
+                  "a5259f56-aa5a-472b-b498-d20845718a25"
+                ]
+              },
+              "language": {
+                "SS": ["english", "malay", "mandarin"]
+              },
+              "interpreterLanguage": {
+                "SS": ["english", "malay", "mandarin"]
+              },
+              "respondentCount": {
+                "N": 50
+              },
+              "backupRespondentCount": {
+                "N": 10
+              },
+              "isRemote": {
+                "BOOL": true
+              }
+            },
+            {
+              "partition": {
+                "S": "8843d638-9dcf-4417-92e6-921fbd4bf4cd"
+              },
+              "sort": {
+                "S": "meta"
+              },
+              "createdAt": {
+                "N": 1701565200
+              },
+              "type": {
+                "S": "focusGroup"
+              },
+              "name": {
+                "S": "Someone Something Focus Group"
+              },
+              "status": {
+                "S": "completed"
+              },
+              "startDate": {
+                "N": 1701705600
+              },
+              "endDate": {
+                "N": 1701878400
+              },
+              "ownerId": {
+                "S": "64760e40-80f3-4009-a67d-f46b2e4b8360"
+              },
+              "clientIds": {
+                "SS": ["e698a46e-d466-4724-b317-7b15cfe41b66"]
+              },
+              "researcherIds": {
+                "SS": [
+                  "1cdbeb91-bb03-4b5f-ba53-83732830c882",
+                  "098ec214-2936-4074-8cb9-d0fb1fbe0e6f",
+                  "c603400f-1ad7-4463-a618-1a6e5b10088f"
+                ]
+              },
+              "observerIds": {
+                "SS": [
+                  "0f9631ae-bbaf-4e1c-9f06-66f6e72eba1d",
+                  "38e1ddd5-4ede-437c-8125-5649a7db0bc6",
+                  "a5259f56-aa5a-472b-b498-d20845718a25"
+                ]
+              },
+              "moderatorIds": {
+                "SS": [
+                  "b033bca8-5e23-46f8-8c94-94eba1fa8a96",
+                  "69682be5-5f35-4e99-88e3-042597ec2648",
+                  "a5259f56-aa5a-472b-b498-d20845718a25"
+                ]
+              },
+              "language": {
+                "SS": ["english", "malay"]
+              },
+              "interpreterLanguage": {
+                "SS": ["english", "malay"]
+              },
+              "respondentCount": {
+                "N": 15
+              },
+              "backupRespondentCount": {
+                "N": 5
+              },
+              "isRemote": {
+                "BOOL": false
+              }
+            }
+          ],
+          "NonKeyAttributes": [
+            "createdAt",
+            "updatedAt",
+            "type",
+            "name",
+            "type",
+            "status",
+            "startDate",
+            "endDate",
+            "ownerId",
+            "clientIds",
+            "researcherIds",
+            "language",
+            "interpreterLanguage",
+            "observerIds",
+            "moderatorIds",
+            "respondentCount",
+            "backupRespondentCount",
+            "isRemote",
+            "deviceType"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "event",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Project ID",
+            "SortKeyAlias": "Event ID"
+          },
+          "TableData": [],
+          "NonKeyAttributes": [
+            "createdAt",
+            "updatedAt",
+            "surveyId",
+            "fulfilledCriteria",
+            "hasConfirmedSchedule",
+            "discussionGuideId"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "session",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Project ID",
+            "SortKeyAlias": "Session ID"
+          },
+          "TableData": [],
+          "NonKeyAttributes": [
+            "createdAt",
+            "updatedAt",
+            "eventId",
+            "userId",
+            "observerIds",
+            "transactionId",
+            "startTime",
+            "duration",
+            "changeRequested",
+            "videoRecording",
+            "sentimentAnalysis",
+            "guestLinkIds"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "history",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "Project ID",
+            "SortKeyAlias": "Time of change"
+          },
+          "TableData": [],
+          "NonKeyAttributes": ["changes", "userId"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "SampleDataFormats": {
+        "ownerId": ["identifiers", "UUID"],
+        "clientIds": ["identifiers", "UUID"],
+        "researcherIds": ["identifiers", "UUID"],
+        "observerIds": ["identifiers", "UUID"],
+        "moderatorIds": ["identifiers", "UUID"],
+        "surveyId": ["identifiers", "UUID"],
+        "discussionGuideId": ["identifiers", "UUID"],
+        "eventId": ["identifiers", "UUID"],
+        "userId": ["identifiers", "UUID"],
+        "transactionId": ["identifiers", "UUID"],
+        "guestLinkIds": ["identifiers", "UUID"]
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    },
+    {
+      "TableName": "transactions",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "userId",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "date",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "transactionId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "balance",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "pendingWithdrawal",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "remarks",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "sourceOfIncomeId",
+          "AttributeType": "S"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "transaction",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "userId",
+            "SortKeyAlias": "date"
+          },
+          "TableData": [],
+          "NonKeyAttributes": ["transactionId", "balance", "pendingWithdrawal", "remarks", "sourceOfIncomeId"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "userId": {
+            "S": "a9940738-5aa9-49da-b165-aca026dfde38"
+          },
+          "date": {
+            "S": "2023-11-09T06:58:32.926Z"
+          },
+          "transactionId": {
+            "S": "debit#1699513253"
+          },
+          "balance": {
+            "N": "10"
+          },
+          "remarks": {
+            "S": "Referral"
+          },
+          "sourceOfIncomeId": {
+            "S": "ref#1699513269"
+          }
+        },
+        {
+          "userId": {
+            "S": "262f8dc8-c8d2-4070-9a38-c2b89d7b7006"
+          },
+          "date": {
+            "S": "2023-11-09T07:42:56.784Z"
+          },
+          "transactionId": {
+            "S": "credit#1699513254"
+          },
+          "balance": {
+            "N": "35"
+          },
+          "remarks": {
+            "S": "Withdrawal"
+          }
+        },
+        {
+          "userId": {
+            "S": "c6bd7504-df74-44e3-97ab-a1e743e4492e"
+          },
+          "date": {
+            "S": "2023-11-09T07:44:11.560Z"
+          },
+          "transactionId": {
+            "S": "pending#1699513255"
+          },
+          "balance": {
+            "N": "16"
+          },
+          "pendingWithdrawal": {
+            "N": "10"
+          },
+          "remarks": {
+            "S": "Withdrawal"
+          }
+        },
+        {
+          "userId": {
+            "S": "508109e3-f27e-4fa6-b0f5-a2a1b394fa53"
+          },
+          "date": {
+            "S": "2023-11-09T07:44:55.883Z"
+          },
+          "transactionId": {
+            "S": "cancel#1699513256"
+          },
+          "balance": {
+            "N": "10"
+          },
+          "remarks": {
+            "S": "Withdrawal"
+          },
+          "sourceOfIncomeId": {
+            "S": "ref#1699513269"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "SampleDataFormats": {
+        "transactionId": ["dataTypes", "String"]
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    },
+    {
+      "TableName": "profiles",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "userId",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "sort",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "completedProject",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "bankName",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "bankAccountHolderName",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "modifiedDate",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "bankAccountNumber",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "isPrimary",
+          "AttributeType": "BOOL"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "bankAccount",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "userId",
+            "SortKeyAlias": "sort"
+          },
+          "TableData": [
+            {
+              "userId": {
+                "S": "4d89cf83-e540-452d-b7c2-ec70a96e9a43"
+              },
+              "sort": {
+                "S": "account#1701068998"
+              },
+              "bankName": {
+                "S": "Maybank"
+              },
+              "bankAccountHolderName": {
+                "S": "Teo Kuo Hong"
+              },
+              "modifiedDate": {
+                "S": "1726870770686"
+              },
+              "bankAccountNumber": {
+                "S": "151427198566"
+              },
+              "isPrimary": {
+                "BOOL": true
+              }
+            },
+            {
+              "userId": {
+                "S": "4d89cf83-e540-452d-b7c2-ec70a96e9a43"
+              },
+              "sort": {
+                "S": "account#1701068991"
+              },
+              "bankName": {
+                "S": "CIMB"
+              },
+              "bankAccountHolderName": {
+                "S": "Teo Kuo Hong"
+              },
+              "modifiedDate": {
+                "S": "1693778321735"
+              },
+              "bankAccountNumber": {
+                "S": "151427198566"
+              },
+              "isPrimary": {
+                "BOOL": false
+              }
+            },
+            {
+              "userId": {
+                "S": "4d89cf83-e540-452d-b7c2-ec70a96e9a43"
+              },
+              "sort": {
+                "S": "account#1701068992"
+              },
+              "bankName": {
+                "S": "Hong Leong"
+              },
+              "bankAccountHolderName": {
+                "S": "Teo Kuo Hong"
+              },
+              "modifiedDate": {
+                "S": "1705733177843"
+              },
+              "bankAccountNumber": {
+                "S": "151427198566"
+              },
+              "isPrimary": {
+                "BOOL": false
+              }
+            }
+          ],
+          "NonKeyAttributes": ["bankName", "bankAccountHolderName", "modifiedDate", "bankAccountNumber", "isPrimary"],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "userId": {
+            "S": "e84470f6-79aa-4768-8cd5-1e189969c127"
+          },
+          "sort": {
+            "S": "account#1701069110"
+          },
+          "completedProject": {
+            "S": "#proj-6505b882-9f2d-4588-80b9-ab89bc286e98"
+          },
+          "bankName": {
+            "S": "Bank Islam"
+          },
+          "bankAccountHolderName": {
+            "S": "Teo Kuo Hong"
+          },
+          "modifiedDate": {
+            "S": "1695167749953"
+          },
+          "bankAccountNumber": {
+            "S": "151427198566"
+          },
+          "isPrimary": {
+            "BOOL": false
+          }
+        },
+        {
+          "userId": {
+            "S": "e84470f6-79aa-4768-8cd5-1e189969c127"
+          },
+          "sort": {
+            "S": "account#1701069111"
+          },
+          "completedProject": {
+            "S": "#proj-6505b882-9f2d-4588-80b9-ab89bc286e98"
+          },
+          "bankName": {
+            "S": "BSN"
+          },
+          "bankAccountHolderName": {
+            "S": "Teo Kuo Hong"
+          },
+          "modifiedDate": {
+            "S": "1732129280552"
+          },
+          "bankAccountNumber": {
+            "S": "151427198566"
+          },
+          "isPrimary": {
+            "BOOL": true
+          }
+        },
+        {
+          "userId": {
+            "S": "e84470f6-79aa-4768-8cd5-1e189969c127"
+          },
+          "sort": {
+            "S": "account#1701069112"
+          },
+          "completedProject": {
+            "S": "#proj-6505b882-9f2d-4588-80b9-ab89bc286e98"
+          },
+          "bankName": {
+            "S": "Public Bank"
+          },
+          "bankAccountHolderName": {
+            "S": "Teo Kuo Hong"
+          },
+          "modifiedDate": {
+            "S": "1727767746835"
+          },
+          "bankAccountNumber": {
+            "S": "151427198566"
+          },
+          "isPrimary": {
+            "BOOL": false
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "SampleDataFormats": {
+        "userId": ["identifiers", "UUID"],
+        "modifiedDate": ["date", "Epoc/Unix date format"]
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}

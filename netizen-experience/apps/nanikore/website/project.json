@@ -1,0 +1,63 @@
+{
+  "name": "nanikore-website",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nanikore/website/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "tsc -p tsconfig.json --noEmit",
+        "cwd": "apps/nanikore/website",
+        "forwardAllArgs": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{outputs.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "apps/nanikore/website",
+        "postcssConfig": "apps/nanikore/website/postcss.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nanikore-website:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nanikore-website:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "nanikore-website:build:production",
+          "dev": false
+        }
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/nanikore/website",
+        "commands": [
+          "ts-node ../../../tools/nanikore/src/predev/website.ts --project ../../../tools/nanikore/tsconfig.json",
+          "next dev"
+        ]
+      }
+    }
+  }
+}

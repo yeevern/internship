@@ -1,0 +1,64 @@
+{
+  "name": "career-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/career/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "staging",
+      "options": {
+        "cwd": "apps/career/api",
+        "command": "cdk synth --no-staging --context target=staging"
+      },
+      "configurations": {
+        "local": {
+          "command": "cdk synth --no-staging --context target=local"
+        },
+        "staging": {
+          "command": "cdk synth --no-staging --context target=staging"
+        },
+        "production": {
+          "command": "cdk synth --no-staging --context target=production"
+        }
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "staging",
+      "options": {
+        "cwd": "apps/career/api",
+        "command": "cdk deploy --no-staging --context target=staging"
+      },
+      "configurations": {
+        "staging": {
+          "command": "cdk deploy --no-staging --context target=staging"
+        },
+        "production": {
+          "command": "cdk deploy --no-staging --context target=production"
+        }
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p tsconfig.json --noEmit",
+        "cwd": "apps/career/api",
+        "forwardAllArgs": false
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/career/api",
+        "commands": [
+          "nx run career-api:build --args='--target=local'",
+          "ts-node ../../../tools/localstack/src/index.ts -t ./cdk.out/nx-career-api-local.template.json",
+          "sam local start-api -t ./cdk.out/nx-career-api-local.template.json --docker-network career_localstack_network"
+        ],
+        "parallel": false
+      }
+    }
+  }
+}

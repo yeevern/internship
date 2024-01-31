@@ -1,0 +1,36 @@
+@import "tailwindcss/base";
+@import "../src/styles/base.css";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "../src/styles/utilities.css";
+
+@font-face {
+  font-family: Satoshi;
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Satoshi;
+  src: url("/fonts/Satoshi-VariableItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-sans: "Satoshi";
+    --font-mono: "Space Mono";
+  }
+}

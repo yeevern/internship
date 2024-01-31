@@ -1,0 +1,30 @@
+{
+  "name": "libs-nanikore-project",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nanikore/project/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nanikore/project",
+        "main": "libs/nanikore/project/src/index.ts",
+        "tsConfig": "libs/nanikore/project/tsconfig.lib.json",
+        "assets": ["libs/nanikore/project/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/nanikore/project/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

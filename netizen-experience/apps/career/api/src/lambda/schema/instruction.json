@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Career API instruction schema",
+  "properties": {
+    "email": {
+      "type": "string",
+      "title": "Email to identify candidate",
+      "description": "Email which candidate used to apply for the position, and will be used as the ID when logging the API calls",
+      "format": "email",
+      "errorMessage": {
+        "type": "'email' must be a string",
+        "format": "invalid 'email' format"
+      }
+    }
+  },
+  "additionalProperties": true
+}

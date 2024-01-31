@@ -1,0 +1,28 @@
+#badge {
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
+  opacity: 0.3;
+  transition: opacity 200ms ease-in-out;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+#badge:hover {
+  opacity: 1;
+}
+
+#badge > div {
+  display: flex;
+  align-items: center;
+}
+
+#badge a {
+  text-decoration: none;
+}
+
+#badge .logo {
+  display: block;
+  width: 16px;
+  height: 16px;
+}

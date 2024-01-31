@@ -1,0 +1,80 @@
+{
+  "name": "internal-website",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/internal/website",
+  "projectType": "application",
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "tsc -p tsconfig.json --noEmit",
+        "cwd": "apps/internal/website",
+        "forwardAllArgs": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/internal/website/**/*.{ts,tsx,js,jsx}", "apps/internal/website/package.json"]
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/internal/website",
+        "commands": [
+          "ts-node ../../../tools/internal/src/predev/website.ts --project ../../../tools/internal/tsconfig.json",
+          "next dev"
+        ]
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/internal/website"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/internal/website"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "internal-website:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "internal-website:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "internal-website:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "internal-website:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/internal/website/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

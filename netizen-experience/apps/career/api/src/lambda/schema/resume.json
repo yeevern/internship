@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Upload resume schema",
+  "required": ["email", "name", "file"],
+  "properties": {
+    "email": {
+      "type": "string",
+      "title": "Candidate's email",
+      "description": "Email which candidate used to apply for the position, and will be used as the ID when logging the API calls",
+      "format": "email",
+      "errorMessage": {
+        "type": "'email' must be a string",
+        "format": "invalid 'email' format"
+      }
+    },
+    "name": {
+      "type": "string",
+      "title": "Candidate's name",
+      "description": "Candidate's name",
+      "minLength": 2,
+      "maxLength": 80,
+      "errorMessage": {
+        "type": "'name' must be a string",
+        "minLength": "'name' must contain at least 2 characters",
+        "maxLength": "'name' must contain fewer than 80 characters"
+      }
+    },
+    "file": {
+      "type": "string",
+      "title": "Resume PDF",
+      "description": "Resume file that is encoded in Base64 string",
+      "contentEncoding": "base64",
+      "errorMessage": {
+        "type": "'file' must be a string"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "errorMessage": {
+    "type": "request body must be an object",
+    "required": {
+      "email": "request body should contain a string property 'email'",
+      "name": "request body should contain a string property 'name'",
+      "file": "request body should contain a string property 'file'"
+    }
+  }
+}

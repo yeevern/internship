@@ -1,0 +1,58 @@
+{
+  "Next API Handler": {
+    "scope": "typescript",
+    "prefix": "Next:API",
+    "body": [
+      "import { apiHandler, parseRequest } from \"@netizen/utils-next\";",
+      "",
+      "const handler = apiHandler({",
+      "  GET: async (req, res) => {",
+      "    // Your code here",
+      "  },",
+      "});",
+      "export default handler;"
+    ]
+  },
+  "Lambda Handler: HTTP2.0": {
+    "scope": "typescript",
+    "prefix": "Lambda:HTTP2.0",
+    "body": [
+      "import { createResponse, handleError, parseRequest } from \"@netizen/utils-aws\";",
+      "import { APIGatewayProxyHandlerV2 } from \"aws-lambda\";",
+      "",
+      "export const handler: APIGatewayProxyHandlerV2 = async (event) => {",
+      "  try {",
+      "    const request = parseRequest({ event });",
+      "    // Add your code here",
+      "    $0",
+      "    return createResponse({ body: {} });",
+      "  } catch (ex) {",
+      "    return await handleError({ event, ex });",
+      "  }",
+      "};"
+    ],
+    "description": "Lambda handler stub for API Gateway 2.0"
+  },
+  "Lambda Handler: HTTP2.0 with Authorizer": {
+    "scope": "typescript",
+    "prefix": "Lambda:HTTP2.0 With Authorizer",
+    "body": [
+      "import { User } from \"@netizen/cloud-core/types/users\";",
+      "import { createResponse, handleError, parseRequest } from \"@netizen/utils-aws\";",
+      "import { APIGatewayProxyHandlerV2WithLambdaAuthorizer } from \"aws-lambda\";",
+      "",
+      "export const handler: APIGatewayProxyHandlerV2WithLambdaAuthorizer<User> = async (event) => {",
+      "  try {",
+      "    const { uuid } = event.requestContext.authorizer.lambda;",
+      "    const request = parseRequest({ event });",
+      "    // Add your code here",
+      "    $0",
+      "    return createResponse({ body: {} });",
+      "  } catch (ex) {",
+      "    return await handleError({ event, ex });",
+      "  }",
+      "};"
+    ],
+    "description": "Lambda handler stub for API Gateway 2.0"
+  }
+}

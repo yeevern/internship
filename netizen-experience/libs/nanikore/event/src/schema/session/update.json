@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Update event",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "timeslot": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration": {
+      "type": "number",
+      "minimum": 1
+    },
+    "change": {
+      "type": "boolean"
+    },
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}
